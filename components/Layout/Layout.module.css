@@ -1,0 +1,5 @@
+.layout {
+    height: 100%;
+    padding: 250px 10% 250px 20%;
+    background-color:var(--color-darkblue);
+}

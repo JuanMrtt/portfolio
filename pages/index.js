@@ -1,65 +1,59 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+
+import { useRef } from "react";
+import AboutMe from "../components/AboutMe/AboutMe";
+import Experience from "../components/Experience/Experience";
+import Layout from "../components/Layout/Layout";
+import Navigation from "../components/Navigation/Navigation";
+import Projects from '../components/Projects/Projects';
 
 export default function Home() {
+  const aboutMeRef = useRef();
+  const experienceRef = useRef();
+  const projectRef = useRef();
+
+  console.log('aboutme', aboutMeRef)
+  console.log('experienceRef', experienceRef)
+
+  // const scrollToMyRef = () => {
+  //   console.log('presionando aboutme')
+  //   window.scroll({
+  //     top: aboutMeRef.current.offsetTop,
+  //     left: 0,
+  //     behavior: 'smooth',
+  //   });
+  // };
+
+  const scrollToHandler = (index) => {
+    switch (index) {
+      case 0:
+        console.log('click0')
+        console.log(aboutMeRef)
+        window.scroll({ top: aboutMeRef.current.offsetTop, left: 0 });
+        // aboutMeRef.current.offsetTop;
+        return;
+      case 1:
+        console.log('click')
+        console.log(experienceRef)
+        window.scroll({ top: experienceRef.current.offsetTop, left: 0 });
+        return;
+      case 2:
+        //   this.workChild.current.scrollToMyRef();
+        window.scroll({ top: projectRef.current.offsetTop, left: 0 });
+        return;
+
+      default:
+        return;
+    }
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <>
+      <Layout scrollToHandler={scrollToHandler}>
+        <AboutMe ref={aboutMeRef} />
+        <Experience ref={experienceRef} />
+        <Projects ref={projectRef} />
+      </Layout>
+    </>
   )
 }
