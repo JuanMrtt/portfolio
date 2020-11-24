@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react'
 import { data } from '../../data'
+import CardExperience from '../UI/CardExperience/CardExperience'
 import styles from './Experience.module.css'
 
 const Experience = forwardRef((props, ref) => {
@@ -21,22 +22,15 @@ const Experience = forwardRef((props, ref) => {
     }
 
     return (
-        <div ref={ref} className={styles.experience}>
-            <h1>{data.experience.title}</h1>
-            <input style={{ backgroundColor: 'blue', color: 'white' }} onChange={(e) => onChangeText(e)}></input>
-            <button onClick={() => console.log(inputText)}>Submit</button>
-            {data && data.experience.experience.map(experience =>
-                (
-                    <div>
-                        <h3>{experience.jobTitle}</h3>
-                        <p>{experience.company}</p>
-                        <p>{experience.from} - {experience.till}</p>
-                        <ul>
-                            {experience.description.map(elm => <li>{elm}</li>)}
-                        </ul>
-                    </div>
-                )
-            )}
+        <div ref={ref} className={`${styles.experience} section`}>
+            <h2 className={`title`}> {data.experience.title}</h2>
+
+            <CardExperience
+                data={data.experience.experience}
+            >
+
+            </CardExperience>
+
         </div >
     )
 })

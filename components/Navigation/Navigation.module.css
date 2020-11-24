@@ -1,13 +1,12 @@
 .header {
-    background-color: var(--color-darkblue);
+    background-color: var(--navy);
     width: 100%;
     height: 80px;
     position: fixed;
     top:0;
     left: 0;
-    border-bottom: 1px solid black;
     align-items: center;
-
+    z-index: 900;
 }
 
 .nav {
@@ -25,10 +24,11 @@
 
 .nav li a {
     padding: 2px 7px 2px 7px;
-    color: var(--color-grey);
+    color: var(--lightest-slate);
     text-decoration: none;
 }
 
 .nav li a:hover{
    color: #ffffff;
+   cursor: pointer;
 }

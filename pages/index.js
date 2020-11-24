@@ -6,6 +6,7 @@ import Experience from "../components/Experience/Experience";
 import Layout from "../components/Layout/Layout";
 import Navigation from "../components/Navigation/Navigation";
 import Projects from '../components/Projects/Projects';
+import Introduction from '../components/Introduction/Introduction';
 
 export default function Home() {
   const aboutMeRef = useRef();
@@ -50,6 +51,7 @@ export default function Home() {
   return (
     <>
       <Layout scrollToHandler={scrollToHandler}>
+        <Introduction ref={aboutMeRef} />
         <AboutMe ref={aboutMeRef} />
         <Experience ref={experienceRef} />
         <Projects ref={projectRef} />

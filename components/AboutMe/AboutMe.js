@@ -16,8 +16,8 @@ const AboutMe = forwardRef((props, ref) => {
 
     return (
         // <div className={styles.aboutme}>
-        <div ref={ref}>
-            <h1>{data.aboutMe.title}</h1>
+        <div ref={ref} className={`${styles.aboutme} section`}>
+            <h2 className={`title`}> {data.aboutMe.title}</h2>
             <p>{data.aboutMe.paragraph_1}</p>
             <p>{data.aboutMe.paragraph_2}</p>
             <p>{data.aboutMe.paragraph_3}</p>

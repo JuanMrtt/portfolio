@@ -3,7 +3,6 @@ import { data } from '../../data'
 import styles from './Navigation.module.css';
 
 function Navigation({ scrollToHandler }) {
-    console.log(data)
     return (
         <header className={styles.header}>
             <ul className={`${styles.nav} row`}>
