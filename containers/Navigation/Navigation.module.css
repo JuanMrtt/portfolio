@@ -24,11 +24,11 @@
 
 .nav li a {
     padding: 2px 7px 2px 7px;
-    color: var(--lightest-slate);
+    /* color: var(--lightest-slate); */
     text-decoration: none;
 }
-
+/* 
 .nav li a:hover{
    color: #ffffff;
    cursor: pointer;
-}
+} */

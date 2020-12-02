@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import CustomButton from '../../CustomComponents/CustomButton/CustomButton';
 import styles from './CardExperience.module.css';
 
 const CardExperience = ({ data }) => {
-    console.log(data)
 
     const [company, setCompany] = useState(data[0]);
+    const [isActive, setIsActive] = useState(0);
 
     const handleClick = (company) => {
+        setIsActive(company.id)
         setCompany(company)
     }
 
@@ -17,7 +19,14 @@ const CardExperience = ({ data }) => {
                 <ul>
                     {data.map(elm =>
                         <li key={elm.company}>
-                            <button key={elm.company} className={styles.button} onClick={() => handleClick(elm)}>{elm.company}</button>
+                            <CustomButton
+                                key={elm.company}
+                                onClick={() => handleClick(elm)}
+                                customStyles={`${isActive === elm.id && styles.button_active}`}
+                                active={isActive}
+                            >
+                                {elm.company}
+                            </CustomButton>
                         </li>
                     )}
 

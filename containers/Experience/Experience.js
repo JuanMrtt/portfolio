@@ -1,15 +1,13 @@
 import React, { forwardRef, useRef, useState } from 'react'
 import { data } from '../../data'
-import CardExperience from '../UI/CardExperience/CardExperience'
+import CardExperience from '../../components/UI/CardExperience/CardExperience'
 import styles from './Experience.module.css'
 
 const Experience = forwardRef((props, ref) => {
-    console.log(data)
     const experienceRef = useRef();
     const [inputText, setInputText] = useState('')
 
     const scrollToMyRef = () => {
-        console.log(presionando)
         window.scroll({
             top: experienceRef.current.offsetTop,
             left: 0,
@@ -18,7 +16,6 @@ const Experience = forwardRef((props, ref) => {
     };
     const onChangeText = (e) => {
         setInputText(e.target.value)
-        console.log(inputText)
     }
 
     return (

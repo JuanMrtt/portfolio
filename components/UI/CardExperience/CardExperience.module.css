@@ -31,11 +31,19 @@
     height: 42px;
     padding: 0px 20px 2px;
     border-color: transparent;
-    color: var(--color-green);
-    border-left: 2px solid var(--color-green);
+    color: var(--slate);
+    /* color: var(--color-green); */
+    border-left: 2px solid var(--slate);
     align-items: center;
     text-align: left;
 }
+
+.button_active {
+    border-left: 2px solid var(--green);
+    transition: var(--transition);
+    color: var(--green);    
+}
+
 .details {
     width: 85%;
     height: 100%;

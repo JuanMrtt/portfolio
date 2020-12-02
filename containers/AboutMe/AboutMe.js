@@ -6,7 +6,6 @@ import styles from './AboutMe.module.css'
 const AboutMe = forwardRef((props, ref) => {
 
     const scrollToMyRef = () => {
-        console.log('presionando aboutme')
         window.scroll({
             top: aboutMeRef.current.offsetTop,
             left: 0,

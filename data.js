@@ -127,4 +127,9 @@ export const data = {
         paragraph_1: "Mi email siempre esta abierto para nuevos contactos, cualquier consejo para cómo mejorar y para cualquier oportunidad laboral.",
         paragraph_2: "Dejame un mensaje o simplemente dime hola :)."
     },
+    footer: {
+        title: "Creado por Juan Antonio Martin",
+        subtitle: "JuanMrtt @ GitHub",
+        link: "https://github.com/JuanMrtt"
+    }
 }

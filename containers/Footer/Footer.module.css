@@ -1,0 +1,14 @@
+.footer {
+    min-height: 75px;
+}
+
+.footerCard {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.span {
+    font-size: 12px;
+}

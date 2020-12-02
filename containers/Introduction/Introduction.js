@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react'
 import { data } from '../../data'
 
 const Projects = forwardRef((props, ref) => {
-    console.log(data)
     return (
         <div ref={ref} className={` section`}>
 
