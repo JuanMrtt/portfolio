@@ -1,9 +1,9 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, sans-serif;
-  /* --color-darkblue: #14274E;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    /* --color-darkblue: #14274E;
   --color-darkbluelight: #394867;
   --color-grey: #9BA4b4;
   --color-white: #F1F6F9;
@@ -11,25 +11,29 @@ body {
     --dark-navy: #020c1b;
     --navy: #0a192f;
     --light-navy: #172a45;
-    --lightest-navy: #303C55;
-    --navy-shadow: rgba(2,12,27,0.7);
+    --lightest-navy: #303c55;
+    --navy-shadow: rgba(2, 12, 27, 0.7);
     --slate: #8892b0;
     --light-slate: #a8b2d1;
     --lightest-slate: #ccd6f6;
     --white: #e6f1ff;
     --green: #64ffda;
-    --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-color: var(--navy);
     color: var(--slate);
     line-height: 1.3;
-  
 }
-h1, h2, h3, h4, h5, h6 {
-  /* margin: 0px ; */
-  margin-bottom: 10px;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  line-height: 1.1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* margin: 0px ; */
+    margin-bottom: 10px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    line-height: 1.1;
 }
 .title {
     display: flex;
@@ -37,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px 0px 40px;
 }
 .title::after {
-    content: ""; 
+    content: '';
     display: block;
     position: relative;
     top: -5px;
@@ -50,37 +54,55 @@ h1, h2, h3, h4, h5, h6 {
 .section {
     margin: 0px auto;
     padding: 100px 0px;
+    height: 100vh;
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+    src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 
 @font-face {
     font-family: Roboto;
-    src: url("../assets/fonts/Roboto-Light.ttf") format("truetype");
+    src: url('../assets/fonts/Roboto-Light.ttf') format('truetype');
     font-weight: 300;
 }
 
-
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
-a:hover , a:focus{
-  color: var(--green);
-  transition: var(--transition);
-  cursor: pointer;
+a:hover,
+a:focus {
+    color: var(--green);
+    transition: var(--transition);
+    cursor: pointer;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Media Query */
+@media (min-width: 600px) {
+    .section {
+        padding: 100px 25px;
+    }
+}
+@media (min-width: 768px) {
+    .section {
+        padding: 100px 50px;
+    }
+}
+@media (min-width: 1300) {
+    .section {
+        padding: 100px 100px;
+    }
 }
