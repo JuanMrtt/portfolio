@@ -1,26 +1,55 @@
-import React from 'react'
-import { data } from '../../data'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { data } from '../../data';
 import styles from './Navigation.module.css';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
 
 function Navigation({ scrollToHandler }) {
+    const [sidebar, setSidebar] = useState(false);
+
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
-        <header className={styles.header}>
-            <ul className={`${styles.nav} row`}>
-                <li>
-                    <a onClick={() => scrollToHandler(0)}>{data.navigation.aboutMe}</a>
-                </li>
-                <li>
-                    <a onClick={() => scrollToHandler(1)}>{data.navigation.experience}</a>
-                </li>
-                <li>
-                    <a onClick={() => scrollToHandler(2)}>{data.navigation.projects}</a>
-                </li>
-                <li>
-                    <a onClick={() => scrollToHandler(3)}>{data.navigation.contact}</a>
-                </li>
-            </ul>
-        </header >
-    )
+        <header>
+            <div className={`${styles.navbar}`}>
+                <Link href='#'>
+                    <a className={`${styles.menuBars}`}>
+                        <FaIcons.FaBars onClick={showSidebar} />
+                    </a>
+                </Link>
+            </div>
+
+            <nav
+                className={
+                    sidebar
+                        ? `${styles.navMenu} ${styles.active}`
+                        : `${styles.navMenu}`
+                }
+            >
+                <ul className={`${styles.navMenuItems}`} onClick={showSidebar}>
+                    <li className={`${styles.navbarToogle}`}>
+                        <Link href='#'>
+                            <a className={styles.menuBars}>
+                                <AiIcons.AiOutlineClose />
+                            </a>
+                        </Link>
+                    </li>
+                    {data.navigation.map((elm, idx) => {
+                        return (
+                            <li key={idx} className={`${styles.navText}`}>
+                                <Link href='#' className={`${styles.menuBars}`}>
+                                    <a onClick={() => scrollToHandler(idx)}>
+                                        {elm.text}
+                                    </a>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </nav>
+        </header>
+    );
 }
 
-export default Navigation
+export default Navigation;
