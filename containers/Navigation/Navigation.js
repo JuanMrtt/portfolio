@@ -9,7 +9,7 @@ import styles from './Navigation.module.css';
 
 function Navigation({ scrollToHandler, isMobile, isLaptop, isDesktop }) {
     return (
-        <header className={isDesktop && styles.header}>
+        <header className={isDesktop ? styles.header : undefined}>
             {isMobile ? (
                 <BurgerMenu scrollToHandler={scrollToHandler} data={data} />
             ) : (

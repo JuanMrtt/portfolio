@@ -9,6 +9,8 @@ import Projects from '../containers/Projects/Projects';
 import Introduction from '../containers/Introduction/Introduction';
 import Footer from '../containers/Footer/Footer';
 
+import '../firebase';
+
 export default function Home() {
     const aboutMeRef = useRef();
     const experienceRef = useRef();
@@ -47,7 +49,6 @@ export default function Home() {
     //     behavior: 'smooth',
     //   });
     // };
-    console.log(isMobile, isLaptop, isDesktop);
 
     const scrollToHandler = index => {
         switch (index) {
