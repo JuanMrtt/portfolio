@@ -1,24 +1,30 @@
-import React, { forwardRef } from 'react'
-import { data } from '../../data'
+import React, { forwardRef, useEffect, useState } from 'react';
+import firebase from '../../firebase';
 
 const Projects = forwardRef((props, ref) => {
+    const database = firebase.database().ref('introduction');
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        database.once('value', function (snapshot) {
+            setData(snapshot.val());
+        });
+    }, []);
+    console.log('data', data);
+
     return (
         <div ref={ref} className={` section`}>
+            {data && (
+                <div>
+                    <h3>{data.preTitle}</h3>
+                    <h1>{data.title}</h1>
+                    <p>{data.paragraph_1}</p>
 
-            {data &&
-                (
-                    <div>
-                        <h3>{data.introduction.preTitle}</h3>
-                        <h1>{data.introduction.title}</h1>
-                        <p>{data.introduction.paragraph_1}</p>
-
-                        <button>Contactame</button>
-
-                    </div>
-                )
-            }
+                    <button>Contactame</button>
+                </div>
+            )}
         </div>
-    )
-})
+    );
+});
 
-export default Projects
+export default Projects;
