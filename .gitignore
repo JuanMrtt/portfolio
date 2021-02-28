@@ -2,6 +2,8 @@
 
 # firebase files
 firebase.js
+data.json
+data.js
 # dependencies
 /node_modules
 /.pnp
