@@ -10,7 +10,6 @@ const Projects = forwardRef((props, ref) => {
             setData(snapshot.val());
         });
     }, []);
-    console.log('data', data);
 
     return (
         <div ref={ref} className={` section`}>

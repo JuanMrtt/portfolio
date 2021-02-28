@@ -1,11 +1,22 @@
-import React, { forwardRef, useRef, useState } from 'react'
-import { data } from '../../data'
-import CardExperience from '../../components/UI/CardExperience/CardExperience'
-import styles from './Experience.module.css'
+import React, { forwardRef, useRef, useState, useEffect } from 'react';
+import firebase from '../../firebase';
+
+import CardExperience from '../../components/UI/CardExperience/CardExperience';
+
+import styles from './Experience.module.css';
 
 const Experience = forwardRef((props, ref) => {
     const experienceRef = useRef();
-    const [inputText, setInputText] = useState('')
+    const [inputText, setInputText] = useState('');
+
+    const database = firebase.database().ref('experience');
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        database.once('value', function (snapshot) {
+            setData(snapshot.val());
+        });
+    }, []);
 
     const scrollToMyRef = () => {
         window.scroll({
@@ -14,22 +25,21 @@ const Experience = forwardRef((props, ref) => {
             behavior: 'smooth',
         });
     };
-    const onChangeText = (e) => {
-        setInputText(e.target.value)
-    }
+    const onChangeText = e => {
+        setInputText(e.target.value);
+    };
 
     return (
         <div ref={ref} className={`${styles.experience} section`}>
-            <h2 className={`title`}> {data.experience.title}</h2>
+            {data && (
+                <>
+                    <h2 className={`title`}> {data.title}</h2>
 
-            <CardExperience
-                data={data.experience.experience}
-            >
+                    <CardExperience data={data.experience}></CardExperience>
+                </>
+            )}
+        </div>
+    );
+});
 
-            </CardExperience>
-
-        </div >
-    )
-})
-
-export default Experience
+export default Experience;
